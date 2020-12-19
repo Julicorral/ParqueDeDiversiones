@@ -20,7 +20,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Nuevo cliente</h1>
+            <h1 class="m-0">Iniciar sesión</h1>
           </div><!-- /.col -->
 
         </div><!-- /.row -->
@@ -37,7 +37,6 @@
 
               
  
-      <h3>Iniciar sesión</h3>
       <form action="validarLogin" method="POST">
 
         <div class="form-group">

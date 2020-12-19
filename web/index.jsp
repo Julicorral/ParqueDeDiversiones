@@ -1,5 +1,13 @@
 
+<%@page import="Logica.Controladora"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%  // Verifico que haya un usuario
+        Controladora control = new Controladora();
+        if (control.getListaUsuario() == null || control.getListaUsuario().isEmpty()){
+            response.sendRedirect("nuevoUsuario.jsp");
+        }
+%>
 
 <jsp:include page="header.jsp" />
 

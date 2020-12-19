@@ -29,17 +29,24 @@ public class validarLogin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+        
+        if (!request.getParameter("logout").equals("true")){
+            response.sendRedirect("index.jsp");
+            return;
+        }
+        
+        HttpSession misession = request.getSession();
+        misession.invalidate(); 
+            
+        response.sendRedirect("index.jsp");
     }
 
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
-        
-        System.out.println("user:" + request.getParameter("nombreUsuario"));
-        
+               
         Boolean okONo = false;
         
         Controladora control = new Controladora();
@@ -55,7 +62,6 @@ public class validarLogin extends HttpServlet {
             
             response.sendRedirect("index.jsp");
         } else {
-            System.out.println("entro al else");
             response.sendRedirect("loginError.jsp");
         }
     }

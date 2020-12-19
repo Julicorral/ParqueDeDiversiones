@@ -2,23 +2,24 @@
 <%@page import="Logica.Controladora"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%  // Verifico que haya una sesión iniciada
+    HttpSession misession = request.getSession();
+    String usu = (String) request.getSession().getAttribute("usuario");
+        if(usu == null) {
+            response.sendRedirect("login.jsp");
+        }
+
+        Controladora control = new Controladora();
+        misession.setAttribute("control", control);
+%>
+
 <jsp:include page="header.jsp" />
 
 <body class="hold-transition sidebar-mini layout-fixed">
 
 
-    <!-- Verifico que haya una sesión iniciada -->
-    <% HttpSession misession = request.getSession();
-        String usu = (String) request.getSession().getAttribute("usuario");
-            if(usu == null) {
-                response.sendRedirect("sinLogin.jsp");
-            } else {
-                Controladora control = new Controladora();
-                misession.setAttribute("control", control);
-            }
-    %>
-    
-    
+
+
 <div class="wrapper">
 
 <jsp:include page="sidebar.jsp" />

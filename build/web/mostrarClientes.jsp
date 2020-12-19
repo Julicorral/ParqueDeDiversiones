@@ -15,11 +15,11 @@
     <% HttpSession misession = request.getSession();
         String usu = (String) request.getSession().getAttribute("usuario");
             if(usu == null) {
-                response.sendRedirect("sinLogin.jsp");
-            } else {
-                Controladora control = new Controladora();
-                misession.setAttribute("control", control);
+                response.sendRedirect("login.jsp");
             }
+            
+            Controladora control = new Controladora();
+            misession.setAttribute("control", control);
     %>
     
     
@@ -61,7 +61,6 @@
                 <th></th>                
             </tr>
             <% 
-                Controladora control = (Controladora) misession.getAttribute("control");
                 List<Cliente> listaClientes = control.getListaCliente();
                 SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
                 for(Cliente cli : listaClientes) {

@@ -1,15 +1,16 @@
 
+<%@page import="Logica.Controladora"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <jsp:include page="header.jsp" />
 
 <body class="hold-transition sidebar-mini layout-fixed">
-    
-    
-    
+
+
+
+
 <div class="wrapper">
 
-<jsp:include page="sidebar.jsp" />
 
 
   <!-- Content Wrapper. Contains page content -->
@@ -19,7 +20,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Diverland</h1>
+            <h1 class="m-0">Nuevo usuario</h1>
           </div><!-- /.col -->
 
         </div><!-- /.row -->
@@ -31,10 +32,34 @@
     
           <!-- /.Left col -->
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
-          <section class="connectedSortable">
+          <section class="col-lg-5 connectedSortable">
 
-              <h1>Necesitás estar logueado para ingresar a esta página</h1>
+
               
+ 
+      <h3>Registro de clientes</h3>
+      <form action="altaUsuario" method="POST">
+
+        <div class="form-group">
+          <label for="formGroupUser">Nombre de usuario</label>
+          <input type="text" class="form-control" id="formGroupUser" name="user" />
+        </div>
+          
+          <div class="form-group">
+          <label for="formGroupPass">Contrase&ntilde;a</label>
+          <input type="password" class="form-control" id="formGroupPass"  name="pass" />
+        </div>
+
+          <button type="submit" class="btn btn-primary">Aceptar</button>
+ 
+    </form>  
+   
+              
+              
+              
+              
+
+
 
 
             <!-- /.card -->
@@ -43,7 +68,9 @@
         </div>
         <!-- /.row (main row) -->
       </div><!-- /.container-fluid -->
+      
 <jsp:include page="footer.jsp" />
-
+      
 </body>
 </html>
+

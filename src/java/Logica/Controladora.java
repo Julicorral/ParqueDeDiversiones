@@ -152,6 +152,27 @@ public class Controladora {
         return listaCliente;
     }
     
+    public List<Usuario> getListaUsuario(){
+        
+        try {
+            listaUsuarios = controlPersis.getUsuarios();
+        } catch(Exception e) {
+            return null;
+        }
+        
+        return listaUsuarios;
+    }
+    
+    public void crearUsuario(String user, String pass) {
+        
+        Usuario usuario = new Usuario();
+        usuario.setNombreUsuario(user);
+        usuario.setPassword(pass);
+        
+        controlPersis.crearUsuario(usuario);
+
+    }
+    
     public Boolean comprobarHorarioJuego(String sHora, String sJuego){
         int id_juego = Integer.parseInt(sJuego);
         Juego juego = controlPersis.getJuego(id_juego);

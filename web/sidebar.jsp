@@ -69,6 +69,12 @@
                   <p>Obtener entrada</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="./validarLogin?logout=true" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Cerrar sesi&oacute;n</p>
+                </a>
+              </li>
               <% } %>
             </ul>
           </li>
