@@ -13,16 +13,16 @@ public class Usuario implements Serializable {
     @Id @GeneratedValue (strategy = GenerationType.SEQUENCE)
     int id_usuario;
     @Basic
-    String nombre_usuario;
+    String nombreUsuario;
     String password;
 
 
     public Usuario() {
     }
 
-    public Usuario(int id_usuario, String nombre_usuario, String password) {
+    public Usuario(int id_usuario, String nombreUsuario, String password) {
         this.id_usuario = id_usuario;
-        this.nombre_usuario = nombre_usuario;
+        this.nombreUsuario = nombreUsuario;
         this.password = password;
     }
 
@@ -34,12 +34,12 @@ public class Usuario implements Serializable {
         this.id_usuario = id_usuario;
     }
 
-    public String getNombre_usuario() {
-        return nombre_usuario;
+    public String getNombreUsuario() {
+        return nombreUsuario;
     }
 
-    public void setNombre_usuario(String nombre_usuario) {
-        this.nombre_usuario = nombre_usuario;
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
 
     public String getPassword() {
@@ -49,6 +49,8 @@ public class Usuario implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+
+   
     
     
 }

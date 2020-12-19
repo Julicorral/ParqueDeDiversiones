@@ -52,5 +52,6 @@ public class Entrada implements Serializable {
     public void setHora(Calendar hora) {
         this.hora = hora;
     }
+
     
 }

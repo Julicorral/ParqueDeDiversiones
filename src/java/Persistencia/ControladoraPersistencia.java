@@ -29,6 +29,22 @@ public class ControladoraPersistencia {
         }
     }
     
+    public void actualizarCliente(Cliente cliente){
+        try {
+            clienteJPA.edit(cliente);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }            
+    }
+    
+    public void eliminarCliente(int id) {
+        try {
+            clienteJPA.destroy(id);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public void crearEmpleado(Empleado emple) {
         try {
             empleJPA.create(emple);
@@ -62,6 +78,14 @@ public class ControladoraPersistencia {
         }
     }
     
+    public void actualizarJuego(Juego juego){
+        try {
+            juegoJPA.edit(juego);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }            
+    }
+    
     public void crearUsuario(Usuario usuario) {
         try {
             usuJPA.create(usuario);
@@ -73,5 +97,28 @@ public class ControladoraPersistencia {
     public List<Usuario> getUsuarios() {
             List<Usuario> listaUsuarios = usuJPA.findUsuarioEntities();
             return listaUsuarios;
+    }
+    
+    public List<Juego> getJuego() {
+            List<Juego> listaJuego = juegoJPA.findJuegoEntities();
+            return listaJuego;
+    }
+    
+    public List<Cliente> getClienteList() {
+            List<Cliente> listaCliente = clienteJPA.findClienteEntities();
+            return listaCliente;
+    }
+    
+    public List<Entrada> getEntradaList() {
+            List<Entrada> listaEntrada = entraJPA.findEntradaEntities();
+            return listaEntrada;
+    }
+    
+    public Cliente getCliente(int id_cliente){
+        return clienteJPA.findCliente(id_cliente);
+    }
+    
+    public Juego getJuego(int id_juego){
+        return juegoJPA.findJuego(id_juego);
     }
 }

@@ -31,9 +31,9 @@
     
           <!-- /.Left col -->
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
-          <section class="col-lg-5 connectedSortable">
+          <section class="connectedSortable">
 
-              <h1>Bienvenido</h1>
+              <h1>El usuario o la contraseña no son válidos, intente de nuevo</h1>
               
 
 
@@ -47,4 +47,3 @@
 
 </body>
 </html>
-

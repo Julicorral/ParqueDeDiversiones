@@ -48,54 +48,8 @@
           <section class="col-lg-5 connectedSortable">
 
 
+              <h3>No hay m&aacute;s entradas disponibles</h3>
               
-      <h3>Compra de entradas</h3>
-      <form action="altaEntrada" method="POST">
-
-        <div class="form-group">
-            <label for="formGroupJuego">Juego</label>
-            <select name="juego" id="formGroupJuego">
-                <% List<Juego> juegos = control.getListaJuego();
-                    for(Juego j : juegos){ %>
-                    <option value="<%=j.getId_juego()%>"><%=j.getNombre()%></option>
-                <% } %>
-            </select>
-        </div>
-          
-        <div class="form-group">
-            <label for="formGroupFecha">Fecha</label>
-            <div class="input-group date" data-target-input="nearest">
-                <input type="date" class="form-control" id="formGroupFecha"  name="fecha" />
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label for="formGroupHora">Hora</label>
-            <select name="hora" id="formGroupHora">
-                <% for(int i = 10; i<18; i++) {
-                    for(int j = 0; j<59; j=j+15) { %>
-                    <option value="<%=String.format("%02d:%02d",i,j)%>"><%=String.format("%02d:%02d",i,j)%></option>
-                <%  }
-                } %>
-            </select>
-        </div>
-
-        <div class="form-group">
-          <label for="formGroupId">N&uacute;mero de cliente</label>
-          <input type="text" class="form-control" id="formGroupId" name="id_cliente" />
-        </div>
-            
-
-          <button type="submit" class="btn btn-primary">Aceptar</button>
- 
-    </form>  
-              
-              
-              
-              
-
-
-
 
             <!-- /.card -->
           </section>
