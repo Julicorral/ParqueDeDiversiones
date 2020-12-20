@@ -6,13 +6,8 @@
 <%@page import="Logica.Controladora"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
-<jsp:include page="header.jsp" />
-
-<body class="hold-transition sidebar-mini layout-fixed">
-
-
-    <!-- Verifico que haya una sesión iniciada -->
-    <% HttpSession misession = request.getSession();
+<%  // Verifico que haya una sesión iniciada
+    HttpSession misession = request.getSession();
         String usu = (String) request.getSession().getAttribute("usuario");
             if(usu == null) {
                 response.sendRedirect("login.jsp");
@@ -20,8 +15,11 @@
             
             Controladora control = new Controladora();
             misession.setAttribute("control", control);
-    %>
+%>
     
+<jsp:include page="header.jsp" />
+
+<body class="hold-transition sidebar-mini layout-fixed">    
     
 <div class="wrapper">
 
@@ -49,8 +47,8 @@
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
           <section class="col-lg-5 connectedSortable">
 
-
-        <table>
+              <div id="page-wrap">
+        <table >
             <tr>
                 <th>Id</th>
                 <th>Apellido</th>
@@ -63,19 +61,26 @@
             <% 
                 List<Cliente> listaClientes = control.getListaCliente();
                 SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
+                String fecha;
                 for(Cliente cli : listaClientes) {
+                    try {
+                        fecha = formatter.format(cli.getFechaNacimiento().getTime());
+                    } catch (Exception e) {
+                        fecha = "";
+                    }
             %>
             <tr>
                 <td id="<%=cli.getId_cliente()%>"><%=cli.getId_cliente()%></td>
                 <td id="<%=cli.getApellido()%>"><%=cli.getApellido()%></td>
                 <td id="<%=cli.getNombre()%>"><%=cli.getNombre()%></td>
                 <td id="<%=cli.getDni()%>"><%=cli.getDni()%></td>
-                <td id="<%=formatter.format(cli.getFechaNacimiento().getTime())%>"><%=formatter.format(cli.getFechaNacimiento().getTime())%></td>
-                <td><a href="modificarCliente?id=<%=cli.getId_cliente()%>&acc=mod">mod</a></td>
-                <td><a href="modificarCliente?id=<%=cli.getId_cliente()%>&acc=del">del</a></td>
+                <td id="<%=fecha%>"><%=fecha%></td>
+                <td><a href="modificarCliente?id=<%=cli.getId_cliente()%>&acc=mod"><i class="fas fa-edit"></i></a></td>
+                <td><a href="modificarCliente?id=<%=cli.getId_cliente()%>&acc=del"><i class="far fa-trash-alt"></i></a></td>
             </tr>
             <% } %>
         </table>
+    </div>
 
 
 

@@ -39,11 +39,14 @@
     
           <!-- /.Left col -->
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
-          <section class="col-lg-5 connectedSortable">
+          <section class="col-lg-12 connectedSortable">
 
               <h1>Bienvenido</h1>
+              <p></p>
               
-
+              <div class="container">
+                  <img src="dist/img/fun-fair.jpg" style="max-width: 100%; height: auto;"/>
+              </div>
 
             <!-- /.card -->
           </section>

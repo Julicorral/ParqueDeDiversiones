@@ -1,6 +1,7 @@
 
 package Persistencia;
 
+import Logica.Empleado;
 import Logica.Entrada;
 import Persistencia.exceptions.NonexistentEntityException;
 import java.io.Serializable;
@@ -86,6 +87,10 @@ public class EntradaJpaController implements Serializable {
             }
         }
     }
+    
+    public List<Empleado> findEmpleadosEntities() {
+        return findEmpleadoEntities(true, -1, -1);
+    }
 
     public List<Entrada> findEntradaEntities() {
         return findEntradaEntities(true, -1, -1);
@@ -131,6 +136,10 @@ public class EntradaJpaController implements Serializable {
         } finally {
             em.close();
         }
+    }
+
+    private List<Empleado> findEmpleadoEntities(boolean b, int i, int i0) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

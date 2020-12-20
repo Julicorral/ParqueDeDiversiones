@@ -45,7 +45,7 @@
     
           <!-- /.Left col -->
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
-          <section class="col-lg-5 connectedSortable">
+          <section class="col-lg-9 connectedSortable">
 
 
               <h3>El horario seleccionado no est&aacute; disponible para este juego</h3>

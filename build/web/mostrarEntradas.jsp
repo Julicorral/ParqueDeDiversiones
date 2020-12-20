@@ -1,4 +1,8 @@
-<%@page import="Logica.Juego"%>
+
+<%@page import="Logica.Entrada"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="Logica.Cliente"%>
+<%@page import="Logica.Cliente"%>
 <%@page import="java.util.List"%>
 <%@page import="Logica.Controladora"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -6,22 +10,21 @@
 <jsp:include page="header.jsp" />
 
 <body class="hold-transition sidebar-mini layout-fixed">
-    
+
+
     <!-- Verifico que haya una sesión iniciada -->
     <% HttpSession misession = request.getSession();
         String usu = (String) request.getSession().getAttribute("usuario");
             if(usu == null) {
-                response.sendRedirect("sinLogin.jsp");
+                response.sendRedirect("login.jsp");
             }
             
             Controladora control = new Controladora();
             misession.setAttribute("control", control);
-            
     %>
     
+    
 <div class="wrapper">
-
-
 
 <jsp:include page="sidebar.jsp" />
 
@@ -33,7 +36,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Diverland</h1>
+            <h1 class="m-0">Entradas compradas</h1>
           </div><!-- /.col -->
 
         </div><!-- /.row -->
@@ -45,12 +48,34 @@
     
           <!-- /.Left col -->
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
-          <section class="col-lg-7 connectedSortable">
+          <section class="col-lg-5 connectedSortable">
+
+              <div id="page-wrap">
+        <table>
+            <tr>
+                <th>Id</th>
+                <th>Fecha</th>
+                <th>Hora</th>
+                <th></th>
+                <th></th>                
+            </tr>
+            <% 
+                List<Entrada> listaEntradas = control.getListaEntrada();
+                SimpleDateFormat formatterFecha = new SimpleDateFormat("dd/MM/yyyy");  
+                SimpleDateFormat formatterHora = new SimpleDateFormat("HH:mm:SS"); 
+                for(Entrada entra : listaEntradas) {
+            %>
+            <tr>
+                <td id="<%=entra.getId_entrada()%>"><%=entra.getId_entrada()%></td>
+                <td id="<%=formatterFecha.format(entra.getFecha().getTime())%>"><%=formatterFecha.format(entra.getFecha().getTime())%></td>
+                <td id="<%=formatterHora.format(entra.getHora().getTime())%>"><%=formatterHora.format(entra.getHora().getTime())%></td>
+            </tr>
+            <% } %>
+        </table>
+    </div>
 
 
-              <h3>No hay m&aacute;s entradas disponibles para este juego</h3>
-              <p>Por favor seleccione otro juego u horario</p>
-              
+
 
             <!-- /.card -->
           </section>
@@ -60,7 +85,7 @@
       </div><!-- /.container-fluid -->
       
 <jsp:include page="footer.jsp" />
-
+      
 </body>
 </html>
 

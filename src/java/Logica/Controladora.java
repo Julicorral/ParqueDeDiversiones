@@ -15,6 +15,8 @@ public class Controladora {
     private List<Usuario> listaUsuarios;
     private List<Juego> listaJuego;
     private List<Cliente> listaCliente;
+    private List<Entrada> listaEntrada;
+    private List<Empleado> listaEmpleado;
     
     void crearUsuario(Usuario usu) {
         controlPersis.crearUsuario(usu);
@@ -163,6 +165,13 @@ public class Controladora {
         return listaUsuarios;
     }
     
+    public List<Empleado> getListaEmpleado(){
+        
+        listaEmpleado = controlPersis.getEmpleadoList();
+        
+        return listaEmpleado;
+    }
+    
     public void crearUsuario(String user, String pass) {
         
         Usuario usuario = new Usuario();
@@ -220,6 +229,12 @@ public class Controladora {
         return true;
     }
     
+    public List<Entrada> getListaEntrada(){
+        
+        listaEntrada = controlPersis.getEntradaList();
+        
+        return listaEntrada;
+    }
     
     public Cliente getCliente(int id_cliente){
         return controlPersis.getCliente(id_cliente);
@@ -227,5 +242,20 @@ public class Controladora {
     
     public Juego getJuego(int id_juego){
         return controlPersis.getJuego(id_juego);
+    }
+
+    public void crearEmpleado(String apellido, String nombre, String dni, String cargo, String id_usuario) {
+        
+        Usuario usuario = controlPersis.getUsuario(Integer.parseInt(id_usuario));
+        
+        Empleado empleado = new Empleado();
+        empleado.setApellido(apellido);
+        empleado.setNombre(nombre);
+        empleado.setDni(dni);
+        empleado.setCargo(cargo);
+        empleado.setUnUsuario(usuario);
+        
+        controlPersis.crearEmpleado(empleado);
+
     }
 }

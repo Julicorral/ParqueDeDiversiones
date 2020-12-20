@@ -20,7 +20,7 @@
       <% if(sbUsu != null) { %>
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="dist/img/avatar3.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
             
@@ -67,6 +67,24 @@
                 <a href="./comprarEntrada.jsp" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Obtener entrada</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./mostrarEntradas.jsp" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Mostrar entradas</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./nuevoEmpleado.jsp" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Crear empleado</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="./mostrarEmpleados.jsp" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Mostrar empleados</p>
                 </a>
               </li>
               <li class="nav-item">

@@ -45,10 +45,11 @@
     
           <!-- /.Left col -->
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
-          <section class="col-lg-5 connectedSortable">
+          <section class="col-lg-7 connectedSortable">
 
 
-              <h3>No hay m&aacute;s entradas disponibles</h3>
+              <h3>No hay m&aacute;s entradas disponibles para este juego</h3>
+              <p>Por favor seleccione otro juego u horario</p>
               
 
             <!-- /.card -->

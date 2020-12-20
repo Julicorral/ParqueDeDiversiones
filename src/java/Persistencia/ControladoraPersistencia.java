@@ -10,6 +10,7 @@ import Logica.Usuario;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.persistence.metamodel.ListAttribute;
 
 
 public class ControladoraPersistencia {
@@ -99,6 +100,10 @@ public class ControladoraPersistencia {
             return listaUsuarios;
     }
     
+    public Usuario getUsuario(int id_usuario){
+        return usuJPA.findUsuario(id_usuario);
+    }
+    
     public List<Juego> getJuego() {
             List<Juego> listaJuego = juegoJPA.findJuegoEntities();
             return listaJuego;
@@ -107,6 +112,11 @@ public class ControladoraPersistencia {
     public List<Cliente> getClienteList() {
             List<Cliente> listaCliente = clienteJPA.findClienteEntities();
             return listaCliente;
+    }
+    
+    public List<Empleado> getEmpleadoList() {
+            List<Empleado> listaEmpleado = empleJPA.findEmpleadoEntities();
+            return listaEmpleado;
     }
     
     public List<Entrada> getEntradaList() {
@@ -121,4 +131,5 @@ public class ControladoraPersistencia {
     public Juego getJuego(int id_juego){
         return juegoJPA.findJuego(id_juego);
     }
+    
 }
