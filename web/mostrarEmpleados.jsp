@@ -36,7 +36,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Mostrar empleados</h1>
+            <h1 class="m-0">Diverland</h1>
           </div><!-- /.col -->
 
         </div><!-- /.row -->
@@ -48,41 +48,40 @@
     
           <!-- /.Left col -->
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
-          <section class="col-lg-5 connectedSortable">
+          <section class="col-lg-8 connectedSortable">
+              <h3>Ver empleados</h3>
+                <div id="page-wrap">
+                  
+                   
+                    <table>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>DNI</th>
+                            <th>Cargo</th>
+                            <th>Usuario</th> 
+                            <th></th>
+                            <th></th>
+                        </tr>
+                        <% 
+                            List<Empleado> listaEmpleados = control.getListaEmpleado();
+                            for(Empleado emple : listaEmpleados) {
+                        %>
+                        <tr>
+                            <td id="<%=emple.getId_empleado()%>"><%=emple.getId_empleado()%></td>
+                            <td id="<%=emple.getNombre()%>"><%=emple.getNombre()%></td>
+                            <td id="<%=emple.getApellido()%>"><%=emple.getApellido()%></td>
+                            <td id="<%=emple.getDni()%>"><%=emple.getDni()%></td>
+                            <td id="<%=emple.getCargo()%>"><%=emple.getCargo()%></td>
+                            <td id="<%=emple.getUnUsuario().getNombreUsuario()%>"><%=emple.getUnUsuario().getNombreUsuario()%></td>
 
-              <div id="page-wrap">
-        <table>
-            <tr>
-                <th>Id</th>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>DNI</th>
-                <th>Cargo</th>
-                <th>Usuario</th>
-                <th></th>
-                <th></th>                
-            </tr>
-            <% 
-                List<Empleado> listaEmpleados = control.getListaEmpleado();
-                for(Empleado emple : listaEmpleados) {
-            %>
-            <tr>
-                <td id="<%=emple.getId_empleado()%>"><%=emple.getId_empleado()%>></td>
-                <td id="<%=emple.getNombre()%>"><%=emple.getNombre()%></td>
-                <td id="<%=emple.getApellido()%>"><%=emple.getApellido()%></td>
-                <td id="<%=emple.getDni()%>"><%=emple.getDni()%></td>
-                <td id="<%=emple.getCargo()%>"><%=emple.getCargo()%></td>
-                <td id="<%=emple.getUnUsuario().getNombreUsuario()%>"><%=emple.getUnUsuario().getNombreUsuario()%></td>
-                
-                <!--<td><a href="modificarEmpleado?id=<%=emple.getId_empleado()%>&acc=mod">Modificar</a></td>
-                <td><a href="modificarEmpleado?id=<%=emple.getId_empleado()%>&acc=del">Borrar</a></td>-->
-            </tr>
-            <% } %>
-        </table>
-    </div>
-
-
-
+                            <td><a href="modificarEmpleado?id=<%=emple.getId_empleado()%>&acc=mod"><i class="fas fa-edit"></i></a></td>
+                            <td><a href="modificarEmpleado?id=<%=emple.getId_empleado()%>&acc=del"><i class="far fa-trash-alt"></i></a></td>
+                        </tr>
+                        <% } %>
+                    </table>
+                </div>
 
             <!-- /.card -->
           </section>

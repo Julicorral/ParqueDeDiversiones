@@ -54,6 +54,22 @@ public class ControladoraPersistencia {
         }
     }
     
+    public void actualizarEmpleado(Empleado emple){
+        try {
+            empleJPA.edit(emple);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }            
+    }
+    
+    public void eliminarEmpleado(int id) {
+        try {
+            empleJPA.destroy(id);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public void crearEntrada(Entrada entra) {
         try {
             entraJPA.create(entra);
@@ -61,6 +77,22 @@ public class ControladoraPersistencia {
             Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }  
         
+    }
+    
+    public void actualizarEntrada(Entrada entra){
+        try {
+            entraJPA.edit(entra);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }            
+    }
+    
+    public void eliminarEntrada(int id) {
+        try {
+            entraJPA.destroy(id);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public void crearHorarioJuego(HorarioJuego horario) {
@@ -124,12 +156,25 @@ public class ControladoraPersistencia {
             return listaEntrada;
     }
     
+    public List<Juego> getJuegoList() {
+            List<Juego> listaJuego = juegoJPA.findJuegoEntities();
+            return listaJuego;
+    }
+    
     public Cliente getCliente(int id_cliente){
         return clienteJPA.findCliente(id_cliente);
     }
     
     public Juego getJuego(int id_juego){
         return juegoJPA.findJuego(id_juego);
+    }
+
+    public Empleado getEmpleado(int id_empleado) {
+        return empleJPA.findEmpleado(id_empleado);
+    }
+    
+    public Entrada getEntrada(int id_entrada) {
+        return entraJPA.findEntrada(id_entrada);
     }
     
 }

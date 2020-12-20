@@ -89,14 +89,6 @@
           <button type="submit" class="btn btn-primary">Aceptar</button>
  
     </form>  
-              
-              
-              
-              
-
-
-
-
             <!-- /.card -->
           </section>
           <!-- right col -->

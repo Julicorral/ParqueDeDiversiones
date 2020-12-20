@@ -6,9 +6,6 @@
 <div class="wrapper">
 
 
-
-
-
 <jsp:include page="sidebar.jsp" />
       
 
@@ -44,8 +41,8 @@
           <input type="text" class="form-control" id="formGroupName" name="nombreUsuario" />
         </div>
           
-          <div class="form-group">
-              <label for="formGroupName">Contrase&ntilde;a</label>
+        <div class="form-group">
+          <label for="formGroupName">Contrase&ntilde;a</label>
           <input type="password" class="form-control" id="formGroupName"  name="pass" />
         </div>
 

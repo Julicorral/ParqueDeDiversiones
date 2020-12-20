@@ -34,7 +34,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Modificar cliente</h1>
+            <h1 class="m-0">Diverland</h1>
           </div><!-- /.col -->
 
         </div><!-- /.row -->
@@ -47,7 +47,7 @@
           <!-- /.Left col -->
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
           <section class="col-lg-5 connectedSortable">
-
+               
 
       <% int id = Integer.parseInt(request.getParameter("id"));
         Cliente cli = control.getCliente(id);
@@ -78,8 +78,8 @@
         <div class="form-group">
             <label>Fecha de Nacimiento</label>
             <div class="input-group date" data-target-input="nearest">
-          <input type="date" class="form-control" id="formGroupCelular"  name="fechaNac" value="<%=formatter.format(cli.getFechaNacimiento().getTime())%>" />
-        </div>
+                <input type="date" class="form-control" id="formGroupCelular"  name="fechaNac" value="<%=formatter.format(cli.getFechaNacimiento().getTime())%>" />
+            </div>
         </div>
 
           <button type="submit" class="btn btn-primary">Aceptar</button>

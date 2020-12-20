@@ -76,6 +76,12 @@
                 </a>
               </li>
               <li class="nav-item">
+                <a href="./nuevoUsuario.jsp" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Crear usuario</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="./nuevoEmpleado.jsp" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Crear empleado</p>

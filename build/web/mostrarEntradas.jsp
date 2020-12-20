@@ -36,7 +36,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Entradas compradas</h1>
+            <h1 class="m-0">Diverland</h1>
           </div><!-- /.col -->
 
         </div><!-- /.row -->
@@ -46,39 +46,65 @@
 
     <!-- Main content -->
     
+    
           <!-- /.Left col -->
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
-          <section class="col-lg-5 connectedSortable">
+          <section class="col-lg-8 connectedSortable">
+            <h3>Ver entradas</h3>
+            
+            <div id="page-wrap">
+                
+                <table>
+                    <tr>
+                        <th>Id</th>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Juego</th>
+                        <th></th>
+                        <th></th>
 
-              <div id="page-wrap">
-        <table>
-            <tr>
-                <th>Id</th>
-                <th>Fecha</th>
-                <th>Hora</th>
-                <th></th>
-                <th></th>                
-            </tr>
-            <% 
-                List<Entrada> listaEntradas = control.getListaEntrada();
-                SimpleDateFormat formatterFecha = new SimpleDateFormat("dd/MM/yyyy");  
-                SimpleDateFormat formatterHora = new SimpleDateFormat("HH:mm:SS"); 
-                for(Entrada entra : listaEntradas) {
-            %>
-            <tr>
-                <td id="<%=entra.getId_entrada()%>"><%=entra.getId_entrada()%></td>
-                <td id="<%=formatterFecha.format(entra.getFecha().getTime())%>"><%=formatterFecha.format(entra.getFecha().getTime())%></td>
-                <td id="<%=formatterHora.format(entra.getHora().getTime())%>"><%=formatterHora.format(entra.getHora().getTime())%></td>
-            </tr>
-            <% } %>
-        </table>
-    </div>
+                    </tr>
+                    <% 
+                        List<Entrada> listaEntradas;
+                        if (request.getParameter("fecha") == null) {
+                            listaEntradas = control.getListaEntrada();
+                        } else {
+                            listaEntradas = control.getListaEntrada(request.getParameter("fecha"));
+                        }
+                         
+                        SimpleDateFormat formatterFecha = new SimpleDateFormat("dd/MM/yyyy");  
+                        SimpleDateFormat formatterHora = new SimpleDateFormat("HH:mm"); 
+                        for(Entrada entra : listaEntradas) {
+                    %>
+                    <tr>
+                        <td><%=entra.getId_entrada()%></td>
+                        <td><%=formatterFecha.format(entra.getFecha().getTime())%></td>
+                        <td><%=formatterHora.format(entra.getHora().getTime())%></td>
+                        <td><%=control.getJuego(entra).getNombre()%></td>
 
+                    
+                        <td><a href="modificarEntrada?id=<%=entra.getId_entrada()%>&acc=mod"><i class="fas fa-edit"></i></a></td>
+                        <td><a href="modificarEntrada?id=<%=entra.getId_entrada()%>&acc=del"><i class="far fa-trash-alt"></i></a></td>
+                    </tr>
+                    <% } %>
+                </table>
+                
+                <form action="mostrarEntradas.jsp" method="GET">
+        
+                    <div class="form-group">
+                        <label for="formGroupFecha">Fecha</label>
+                        <div class="input-group date" data-target-input="nearest">
+                            <input type="date" class="form-control" id="formGroupFecha" name="fecha" value="<%=request.getParameter("fecha")%>"/>
+                        </div>
+                    </div>
 
-
+                    <button type="submit" class="btn btn-primary">Aceptar</button>
+ 
+                </form>
+            </div>
 
             <!-- /.card -->
-          </section>
+         
           <!-- right col -->
         </div>
         <!-- /.row (main row) -->

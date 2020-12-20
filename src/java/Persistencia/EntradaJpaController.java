@@ -87,10 +87,6 @@ public class EntradaJpaController implements Serializable {
             }
         }
     }
-    
-    public List<Empleado> findEmpleadosEntities() {
-        return findEmpleadoEntities(true, -1, -1);
-    }
 
     public List<Entrada> findEntradaEntities() {
         return findEntradaEntities(true, -1, -1);

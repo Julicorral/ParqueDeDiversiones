@@ -33,7 +33,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Nuevo cliente</h1>
+            <h1 class="m-0">Diverland</h1>
           </div><!-- /.col -->
 
         </div><!-- /.row -->
@@ -45,45 +45,42 @@
     
           <!-- /.Left col -->
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
-          <section class="col-lg-5 connectedSortable">
-
-              <div id="page-wrap">
-        <table >
-            <tr>
-                <th>Id</th>
-                <th>Apellido</th>
-                <th>Nombre</th>
-                <th>DNI</th>
-                <th>Fecha Nac</th>
-                <th></th>
-                <th></th>                
-            </tr>
-            <% 
-                List<Cliente> listaClientes = control.getListaCliente();
-                SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
-                String fecha;
-                for(Cliente cli : listaClientes) {
-                    try {
-                        fecha = formatter.format(cli.getFechaNacimiento().getTime());
-                    } catch (Exception e) {
-                        fecha = "";
-                    }
-            %>
-            <tr>
-                <td id="<%=cli.getId_cliente()%>"><%=cli.getId_cliente()%></td>
-                <td id="<%=cli.getApellido()%>"><%=cli.getApellido()%></td>
-                <td id="<%=cli.getNombre()%>"><%=cli.getNombre()%></td>
-                <td id="<%=cli.getDni()%>"><%=cli.getDni()%></td>
-                <td id="<%=fecha%>"><%=fecha%></td>
-                <td><a href="modificarCliente?id=<%=cli.getId_cliente()%>&acc=mod"><i class="fas fa-edit"></i></a></td>
-                <td><a href="modificarCliente?id=<%=cli.getId_cliente()%>&acc=del"><i class="far fa-trash-alt"></i></a></td>
-            </tr>
-            <% } %>
-        </table>
-    </div>
-
-
-
+          <section class="col-lg-8 connectedSortable">
+            <h3>Ver clientes</h3>
+            <div id="page-wrap">  
+                <table >
+                    <tr>
+                        <th>Id</th>
+                        <th>Apellido</th>
+                        <th>Nombre</th>
+                        <th>DNI</th>
+                        <th>Fecha Nac</th>
+                        <th></th>
+                        <th></th>                
+                    </tr>
+                    <% 
+                        List<Cliente> listaClientes = control.getListaCliente();
+                        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
+                        String fecha;
+                        for(Cliente cli : listaClientes) {
+                            try {
+                                fecha = formatter.format(cli.getFechaNacimiento().getTime());
+                            } catch (Exception e) {
+                                fecha = "";
+                            }
+                    %>
+                    <tr>
+                        <td id="<%=cli.getId_cliente()%>"><%=cli.getId_cliente()%></td>
+                        <td id="<%=cli.getApellido()%>"><%=cli.getApellido()%></td>
+                        <td id="<%=cli.getNombre()%>"><%=cli.getNombre()%></td>
+                        <td id="<%=cli.getDni()%>"><%=cli.getDni()%></td>
+                        <td id="<%=fecha%>"><%=fecha%></td>
+                        <td><a href="modificarCliente?id=<%=cli.getId_cliente()%>&acc=mod"><i class="fas fa-edit"></i></a></td>
+                        <td><a href="modificarCliente?id=<%=cli.getId_cliente()%>&acc=del"><i class="far fa-trash-alt"></i></a></td>
+                    </tr>
+                    <% } %>
+                </table>
+            </div>
 
             <!-- /.card -->
           </section>

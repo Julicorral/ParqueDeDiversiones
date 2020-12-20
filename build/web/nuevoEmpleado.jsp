@@ -20,8 +20,6 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 
 
-
-
 <div class="wrapper">
 
 <jsp:include page="sidebar.jsp" />
@@ -34,7 +32,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Nuevo empleado</h1>
+            <h1 class="m-0">Diverland</h1>
           </div><!-- /.col -->
 
         </div><!-- /.row -->
@@ -47,54 +45,44 @@
           <!-- /.Left col -->
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
           <section class="col-lg-5 connectedSortable">
+                <h3>Registro de empleados</h3>
+      
+      
+                <form action="altaEmpleado" method="POST">
 
+                  <div class="form-group">
+                    <label for="formGroupName">Nombre</label>
+                    <input type="text" class="form-control" id="formGroupName"  name="nombre" />
+                  </div>
 
-              
- 
-      <h3>Registro de empleados</h3>
-      <form action="altaEmpleado" method="POST">
+                    <div class="form-group">
+                    <label for="formGroupName">Apellido</label>
+                    <input type="text" class="form-control" id="formGroupName" name="apellido" />
+                  </div>
 
-        <div class="form-group">
-          <label for="formGroupName">Nombre</label>
-          <input type="text" class="form-control" id="formGroupName"  name="nombre" />
-        </div>
-          
-          <div class="form-group">
-          <label for="formGroupName">Apellido</label>
-          <input type="text" class="form-control" id="formGroupName" name="apellido" />
-        </div>
-          
-        <div class="form-group">
-          <label for="formGroupName">DNI</label>
-          <input type="text" class="form-control" id="formGroupName"  name="dni" />
-        </div>
+                  <div class="form-group">
+                    <label for="formGroupName">DNI</label>
+                    <input type="text" class="form-control" id="formGroupName"  name="dni" />
+                  </div>
 
-        <div class="form-group">
-          <label for="formGroupName">Cargo</label>
-          <input type="text" class="form-control" id="formGroupName" name="cargo" />
-        </div>
-          
-        <div class="form-group">
-            <label for="formGroupUsuario">Usuario</label>
-            <select name="usuario" id="formGroupUsuario">
-                <% List<Usuario> usuario = control.getListaUsuario();
-                    for(Usuario u : usuario){ %>
-                    <option value="<%=u.getId_usuario()%>"><%=u.getNombreUsuario()%></option>
-                <% } %>
-            </select>
-        </div>
+                  <div class="form-group">
+                    <label for="formGroupName">Cargo</label>
+                    <input type="text" class="form-control" id="formGroupName" name="cargo" />
+                  </div>
 
-          <button type="submit" class="btn btn-primary">Aceptar</button>
- 
-    </form>  
-   
-              
-              
-              
-              
+                  <div class="form-group">
+                      <label for="formGroupUsuario">Usuario</label>
+                      <select name="usuario" id="formGroupUsuario">
+                          <% List<Usuario> usuario = control.getListaUsuario();
+                              for(Usuario u : usuario){ %>
+                              <option value="<%=u.getId_usuario()%>"><%=u.getNombreUsuario()%></option>
+                          <% } %>
+                      </select>
+                  </div>
 
+                  <button type="submit" class="btn btn-primary">Aceptar</button>
 
-
+                </form>  
 
             <!-- /.card -->
           </section>

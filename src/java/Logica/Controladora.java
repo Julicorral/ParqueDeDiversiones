@@ -90,6 +90,25 @@ public class Controladora {
 
     }
     
+    public void modificarEmpleado(String id, String nombre, String apellido, String dni, String cargo) {
+        
+        Empleado emple = controlPersis.getEmpleado(Integer.parseInt(id));
+        
+        emple.setApellido(apellido);
+        emple.setNombre(nombre);
+        emple.setDni(dni);
+        emple.setCargo(cargo);
+
+        controlPersis.actualizarEmpleado(emple);
+
+    }
+    
+    public void eliminarEmpleado(int id) {
+                
+        controlPersis.eliminarEmpleado(id);
+
+    }
+        
     public void crearEntrada(String id_juego, String fecha, String hora, String id_cliente) {
         
         Controladora control = new Controladora();
@@ -124,6 +143,29 @@ public class Controladora {
         entradasJuego.add(entrada);
         juego.setListaEntradas(entradasJuego);
         controlPersis.actualizarJuego(juego);
+    }
+    
+    public void modificarEntrada(String id, String fecha, String hora) {
+        
+        Entrada entra = controlPersis.getEntrada(Integer.parseInt(id));
+
+        SimpleDateFormat sdfFecha = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        SimpleDateFormat sdfHora = new SimpleDateFormat("HH:mm", Locale.getDefault());
+        Calendar fechaEntra = Calendar.getInstance();
+        Calendar horaEntra = Calendar.getInstance();
+        
+        try {
+            fechaEntra.setTime(sdfFecha.parse(fecha));
+            horaEntra.setTime(sdfHora.parse(hora));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        entra.setFecha(fechaEntra);
+        entra.setHora(horaEntra);
+        
+        controlPersis.actualizarEntrada(entra);
+
     }
 
     public Boolean comprobarIngreso(String usuario, String pass) {    
@@ -236,8 +278,52 @@ public class Controladora {
         return listaEntrada;
     }
     
+    public List<Entrada> getListaEntrada(String sFecha){
+        
+        listaEntrada = controlPersis.getEntradaList();
+        List<Entrada> lista = new ArrayList<>();
+        
+        Calendar fecha = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        try {
+            fecha.setTime(sdf.parse(sFecha));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        for(Entrada e : listaEntrada) {
+            if (e.getFecha().equals(fecha)){
+                lista.add(e);
+            }
+        }
+        
+        return lista;
+    }
+    
     public Cliente getCliente(int id_cliente){
         return controlPersis.getCliente(id_cliente);
+    }
+    
+    public Entrada getEntrada(int id_entrada){
+        return controlPersis.getEntrada(id_entrada);
+    }
+    
+    public Juego getJuego(Entrada entrada) {
+        List<Juego> lista = controlPersis.getJuegoList();
+        
+        for(Juego j : lista){
+            for(Entrada e : j.getListaEntradas()) {
+                if(e.getId_entrada() == entrada.getId_entrada()) {
+                    return j;
+                }
+            }
+        }
+        
+        return null;
+    }
+    
+    public Empleado getEmpleado(int id_empleado){
+        return controlPersis.getEmpleado(id_empleado);
     }
     
     public Juego getJuego(int id_juego){

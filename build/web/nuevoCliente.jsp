@@ -18,8 +18,6 @@
 <body class="hold-transition sidebar-mini layout-fixed">
 
 
-
-
 <div class="wrapper">
 
 <jsp:include page="sidebar.jsp" />
@@ -32,7 +30,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Nuevo cliente</h1>
+            <h1 class="m-0">Diverland</h1>
           </div><!-- /.col -->
 
         </div><!-- /.row -->
@@ -46,46 +44,35 @@
           <!-- right col (We are only adding the ID to make the widgets sortable)-->
           <section class="col-lg-5 connectedSortable">
 
+            <h3>Registro de clientes</h3>
+                <form action="altaCliente" method="POST">
 
-              
- 
-      <h3>Registro de clientes</h3>
-      <form action="altaCliente" method="POST">
+                  <div class="form-group">
+                    <label for="formGroupName">Apellido</label>
+                    <input type="text" class="form-control" id="formGroupName" name="apellido" />
+                  </div>
 
-        <div class="form-group">
-          <label for="formGroupName">Apellido</label>
-          <input type="text" class="form-control" id="formGroupName" name="apellido" />
-        </div>
-          
-          <div class="form-group">
-          <label for="formGroupName">Nombre</label>
-          <input type="text" class="form-control" id="formGroupName"  name="nombre" />
-        </div>
+                  <div class="form-group">
+                    <label for="formGroupName">Nombre</label>
+                    <input type="text" class="form-control" id="formGroupName"  name="nombre" />
+                  </div>
 
-        <div class="form-group">
-          <label for="formGroupName">DNI</label>
-          <input type="text" class="form-control" id="formGroupName"  name="dni" />
-        </div>
+                  <div class="form-group">
+                    <label for="formGroupName">DNI</label>
+                    <input type="text" class="form-control" id="formGroupName"  name="dni" />
+                  </div>
 
-        <div class="form-group">
-            <label>Fecha de Nacimiento</label>
-            <div class="input-group date" data-target-input="nearest">
-          <input type="date" class="form-control" id="formGroupCelular"  name="fechaNac" />
-        </div>
-        </div>
+                  <div class="form-group">
+                      <label>Fecha de Nacimiento</label>
+                      <div class="input-group date" data-target-input="nearest">
+                        <input type="date" class="form-control" id="formGroupCelular"  name="fechaNac" />
+                      </div>
+                  </div>
 
-          <button type="submit" class="btn btn-primary">Aceptar</button>
- 
-    </form>  
+                  <button type="submit" class="btn btn-primary">Aceptar</button>
+
+                </form>  
    
-              
-              
-              
-              
-
-
-
-
             <!-- /.card -->
           </section>
           <!-- right col -->
