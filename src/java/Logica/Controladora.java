@@ -31,10 +31,6 @@ public class Controladora {
         controlPersis.crearJuego(juego);
     }
 
-    void crearHorario(HorarioJuego horario) {
-        controlPersis.crearHorarioJuego(horario);
-    }
-
     void crearCliente(Cliente cliente) {
         controlPersis.crearCliente(cliente);
     }

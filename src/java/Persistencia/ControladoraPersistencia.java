@@ -4,7 +4,6 @@ package Persistencia;
 import Logica.Cliente;
 import Logica.Empleado;
 import Logica.Entrada;
-import Logica.HorarioJuego;
 import Logica.Juego;
 import Logica.Usuario;
 import java.util.List;
@@ -18,7 +17,6 @@ public class ControladoraPersistencia {
     ClienteJpaController clienteJPA = new ClienteJpaController();
     EmpleadoJpaController empleJPA = new EmpleadoJpaController();
     EntradaJpaController entraJPA = new EntradaJpaController();
-    HorarioJuegoJpaController horarioJPA = new HorarioJuegoJpaController();
     JuegoJpaController juegoJPA = new JuegoJpaController();
     UsuarioJpaController usuJPA = new UsuarioJpaController();
     
@@ -93,14 +91,6 @@ public class ControladoraPersistencia {
         } catch (Exception ex) {
             Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-    
-    public void crearHorarioJuego(HorarioJuego horario) {
-        try {
-            horarioJPA.create(horario);
-        } catch (Exception ex) {
-            Logger.getLogger(ControladoraPersistencia.class.getName()).log(Level.SEVERE, null, ex);
-        }        
     }
     
     public void crearJuego(Juego juego) {

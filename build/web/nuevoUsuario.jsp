@@ -5,9 +5,22 @@
 <jsp:include page="header.jsp" />
 
 <body class="hold-transition sidebar-mini layout-fixed">
+    
+        <!-- Verifico que haya una sesión iniciada -->
+    <% HttpSession misession = request.getSession();
+        String usu = (String) request.getSession().getAttribute("usuario");
+            Controladora control = new Controladora();
+            misession.setAttribute("control", control);
+            
+            if (control.getListaUsuario() != null && !control.getListaUsuario().isEmpty() && usu == null) {
+                response.sendRedirect("sinLogin.jsp");
+            }
+            
+            
+    %>
 
 <div class="wrapper">
-<% Controladora control = new Controladora();
+<%
     if(control.getListaUsuario() != null && !control.getListaUsuario().isEmpty()) {
 %>
 <jsp:include page="sidebar.jsp" />
