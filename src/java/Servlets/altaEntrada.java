@@ -35,6 +35,11 @@ public class altaEntrada extends HttpServlet {
         String hora = request.getParameter("hora");
         String id_cliente = request.getParameter("id_cliente");
         
+        if (id_cliente.isEmpty()) {
+            response.sendRedirect("errorNoCliente.jsp");
+            return;
+        }
+        
         if (!control.comprobarHorarioJuego(hora, juego)) {
             response.sendRedirect("errorHorario.jsp");
             return;

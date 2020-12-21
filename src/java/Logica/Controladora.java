@@ -108,6 +108,12 @@ public class Controladora {
         controlPersis.eliminarEmpleado(id);
 
     }
+    
+    public void eliminarEntrada(int id) {
+                
+        controlPersis.eliminarEntrada(id);
+
+    }
         
     public void crearEntrada(String id_juego, String fecha, String hora, String id_cliente) {
         
@@ -237,6 +243,7 @@ public class Controladora {
         }
         
         if (juego.getHoraInicio().after(hora) || juego.getHoraCierre().before(hora)) {
+            //System.out.println(juego.getHoraInicio().toString()+" "+hora.toString());
             return false;
         } 
         
@@ -315,6 +322,20 @@ public class Controladora {
             for(Entrada e : j.getListaEntradas()) {
                 if(e.getId_entrada() == entrada.getId_entrada()) {
                     return j;
+                }
+            }
+        }
+        
+        return null;
+    }
+    
+    public Cliente getCliente(Entrada entrada) {
+        List<Cliente> lista = controlPersis.getClienteList();
+        
+        for(Cliente c : lista){
+            for(Entrada e : c.getListaEntradasCliente()) {
+                if(e.getId_entrada() == entrada.getId_entrada()) {
+                    return c;
                 }
             }
         }

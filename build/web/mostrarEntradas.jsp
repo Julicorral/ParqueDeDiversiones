@@ -60,6 +60,7 @@
                         <th>Fecha</th>
                         <th>Hora</th>
                         <th>Juego</th>
+                        <th>Cliente</th>
                         <th></th>
                         <th></th>
 
@@ -81,6 +82,7 @@
                         <td><%=formatterFecha.format(entra.getFecha().getTime())%></td>
                         <td><%=formatterHora.format(entra.getHora().getTime())%></td>
                         <td><%=control.getJuego(entra).getNombre()%></td>
+                        <td><%=control.getCliente(entra).getNombre()+" "+control.getCliente(entra).getApellido()%></td>
 
                     
                         <td><a href="modificarEntrada?id=<%=entra.getId_entrada()%>&acc=mod"><i class="fas fa-edit"></i></a></td>

@@ -31,7 +31,7 @@ public class modificarEntrada extends HttpServlet {
         Controladora control = new Controladora();
 
         if (acc.equals("del")) {
-            control.eliminarEmpleado(Integer.parseInt(id));
+            control.eliminarEntrada(Integer.parseInt(id));
             response.sendRedirect("mostrarEntradas.jsp");
         } else {
             response.sendRedirect("modificarEntrada.jsp?id="+id);            
